@@ -1,0 +1,43 @@
+listen AI
+/*
+AI
+
+[rewrite_local]
+https://receipt-verifier.cdwapi.com/receipt url script-response-body https://raw.githubusercontent.com/qingsiguan/mimi/main/listenai
+
+[mitm]
+hostname = receipt-verifier.cdwapi.com
+
+*/
+
+var objc = JSON.parse($response.body);
+    objc = {
+  "status" : {
+    "message" : "Success",
+    "code" : 200
+  },
+  "payload" : {
+    "is_intro_offer" : true,
+    "latest_transaction_id" : "150000958038282",
+    "active" : true,
+    "is_renewal" : false,
+    "expires_at" : 4102027200000,
+    "auto_renew_status" : "1",
+    "grace_expires_at" : null,
+    "is_resubscribe" : false,
+    "product_id" : "com.listenai.pro.3dft.1week.t5",
+    "is_in_grace" : false,
+    "started_at" : 1735098231000,
+    "purchased_product_identifiers" : [
+      "com.listenai.pro.3dft.1week.t5"
+    ],
+    "renewal_week" : 0,
+    "latest_transaction_time" : 1735098230000,
+    "subscription_id" : "150002109255093",
+    "is_trial" : true,
+    "is_family_share" : false
+  }
+}
+
+
+$done({body : JSON.stringify(objc)});
