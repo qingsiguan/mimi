@@ -4,7 +4,7 @@ AI
 
 [rewrite_local]
 https://receipt-verifier.cdwapi.com/receipt url script-request-body https://raw.githubusercontent.com/qingsiguan/mimi/main/listen
-https://receipt-verifier.cdwapi.com/receipt url script-response-body https://raw.githubusercontent.com/qingsiguan/mimi/main/listenai
+https://receipt-verifier.cdwapi.com/receipt url script-response-body https://raw.githubusercontent.com/qingsiguan/mimi/main/listenai0
 
 [mitm]
 hostname = receipt-verifier.cdwapi.com
