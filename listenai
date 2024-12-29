@@ -3,7 +3,7 @@ listen AI
 AI
 
 [rewrite_local]
-https://receipt-verifier.cdwapi.com/receipt url request-body null
+https://receipt-verifier.cdwapi.com/receipt url script-request-body null
 https://receipt-verifier.cdwapi.com/receipt url script-response-body https://raw.githubusercontent.com/qingsiguan/mimi/main/listenai
 
 [mitm]
