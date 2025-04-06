@@ -1,0 +1,29 @@
+ChatAI聊天
+/*
+AI
+
+[rewrite_local]
+^https?:\/\/sadet\.tailn\.xyz\/discourag\?.* url script-response-body https://raw.githubusercontent.com/qingsiguan/mimi/main/doubao
+
+[mitm]
+hostname = sadet.tailn.xyz
+*/
+
+var url = $request.url;
+var body = $response.body;
+
+if (/^https?:\/\/sadet\.tailn\.xyz\/discourag\?.*/.test(url)) {
+    try {
+        var obj = JSON.parse(body);
+        obj = {
+            "status": 1,
+            "expires_date": "2099-04-09 18:30:04"
+        };
+        $done({body: JSON.stringify(obj)});
+    } catch (e) {
+        console.log("JSON解析错误: " + e);
+        $done({});
+    }
+} else {
+    $done({});
+}
