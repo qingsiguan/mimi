@@ -9,21 +9,11 @@ AI
 hostname = sadet.tailn.xyz
 */
 
-var url = $request.url;
-var body = $response.body;
-
-if (/^https?:\/\/sadet\.tailn\.xyz\/discourag\?.*/.test(url)) {
-    try {
-        var obj = JSON.parse(body);
-        obj = {
-            "status": 1,
-            "expires_date": "2099-04-09 18:30:04"
-        };
-        $done({body: JSON.stringify(obj)});
-    } catch (e) {
-        console.log("JSON解析错误: " + e);
-        $done({});
-    }
-} else {
-    $done({});
+var objc = JSON.parse($response.body);
+    objc = {
+  "status" : 1,
+  "expires_date" : "2099-04-09 18:30:04"
 }
+
+
+$done({body : JSON.stringify(objc)});
